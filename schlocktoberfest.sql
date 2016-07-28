@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.12
+-- version 4.6.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 08, 2015 at 03:21 AM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Host: localhost
+-- Generation Time: Jul 28, 2016 at 09:59 AM
+-- Server version: 10.0.17-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,13 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
+CREATE TABLE `comments` (
   `id` int(15) NOT NULL,
-  `user_id` int(15) unsigned NOT NULL,
-  `movie_id` smallint(15) unsigned NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
+  `movie_id` smallint(15) UNSIGNED NOT NULL,
   `comment` varchar(1000) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comments`
@@ -50,12 +50,12 @@ INSERT INTO `comments` (`id`, `user_id`, `movie_id`, `comment`, `timestamp`) VAL
 -- Table structure for table `merchandise`
 --
 
-CREATE TABLE IF NOT EXISTS `merchandise` (
+CREATE TABLE `merchandise` (
   `id` mediumint(10) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `price` decimal(6,2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `merchandise`
@@ -71,13 +71,13 @@ INSERT INTO `merchandise` (`id`, `name`, `description`, `price`) VALUES
 -- Table structure for table `movies`
 --
 
-CREATE TABLE IF NOT EXISTS `movies` (
-  `id` smallint(15) unsigned NOT NULL,
+CREATE TABLE `movies` (
+  `id` smallint(15) UNSIGNED NOT NULL,
   `title` varchar(250) NOT NULL,
   `year` year(4) NOT NULL,
   `poster` varchar(255) DEFAULT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `movies`
@@ -96,7 +96,7 @@ INSERT INTO `movies` (`id`, `title`, `year`, `poster`, `description`) VALUES
 (10, 'The Creature with the Atom Brain', 1955, NULL, 'Nazis? Check. Mad scientist? Check again. Mind control? Once more, yes. Zombies? You better believe it. Gangsters? Seriously? Yeah, throw them in there. As you can probably guess, a Nazi scientist uses radio-controlled zombies to return an exiled mobster to power. Obviously.'),
 (11, 'The Beast with a Million Eyes', 1956, NULL, 'After a spacecraft crashes in the desert just outside of a desolate date farm, the alien visitor takes over the minds of local humans and animals to terrorize the community and steal delicious dates.'),
 (12, 'Godzilla, King of the Monsters!', 1956, NULL, 'The “Americanized” version of the Japanese monster’s first appearance featured an American journalist (Raymond Burr) investigating mysterious occurrences off the coast of Japan, new footage for North American audiences, and, of course, a 400-foot lizard who became famous for laying waste to Tokyo and its inhabitants.'),
-(13, 'The Cosmic Man Appears in Tokyo', 1956, NULL, 'Much like E.T. the Extra-Terrestrial, this film features friendly aliens that find themselves on Earth and befriend humanity. Unlike E.T., the aliens here are actually giant starfish monsters that, fearing their hideous forms will result in an hysteric panic, nominate a female member of their race to take the form of a popular female pop-star to warn us of an approaching meteor that will destroy all life on Earth if we don''t stop it. Also, there are no Reese''s Pieces.'),
+(13, 'The Cosmic Man Appears in Tokyo', 1956, NULL, 'Much like E.T. the Extra-Terrestrial, this film features friendly aliens that find themselves on Earth and befriend humanity. Unlike E.T., the aliens here are actually giant starfish monsters that, fearing their hideous forms will result in an hysteric panic, nominate a female member of their race to take the form of a popular female pop-star to warn us of an approaching meteor that will destroy all life on Earth if we don\'t stop it. Also, there are no Reese\'s Pieces.'),
 (14, 'Plan 9 from Outer Space', 1956, NULL, 'No plan from outer space is quite as sinister, as diabolical, or as outright insidious as Plan 9. In order to stop humanity from creating a powerful sun-powered bomb, invading aliens resurrect the dead on Earth as zombies, and also vampires, to wreak havoc on our planet. Ed Wood’s B-movie classic was famously labeled “the worst movie in the history of cinema” by film critic Michael Medved.'),
 (15, 'Attack of the Crab Monsters', 1956, NULL, 'A team of scientists travel to a remote island to study the effects of nuclear weapons. What they find will shock anyone who doesn’t expect there to be giant mutated crabs that devour human brains.'),
 (16, 'The Mole People', 1956, NULL, 'A group of archaeologists in a remote area of Mesopotamia discover an ancient civilization of subterranean xenophobes who don’t take kindly their types around those parts.'),
@@ -108,7 +108,7 @@ INSERT INTO `movies` (`id`, `title`, `year`, `poster`, `description`) VALUES
 (22, 'Terror from the Year 5,000', 1958, NULL, 'A professor (Frederic Downs) builds a time machine that brings back a woman (Salome Jens) from the year 5200 A.D. She insists that she needs to take healthy males back to her time because it has been devastated by radioactivity in this chilling foreboding of an inevitable future.'),
 (23, 'Beautiful Women and the Hydrogen Man', 1958, NULL, 'Alternately known as The H-Man, the film follows the investigation by Tokyo police into the mysterious chain of reports of vanishing people who leave only their clothes behind, the cause of which seems to be a gelatinous creature created by H-bomb testing living in the sewers beneath the city.'),
 (24, 'The Brain Eaters', 1958, NULL, 'In the small town of Riverdale, Ill., a mysterious structure has erupted out of the earth and unleashed an infestation of parasites from the center of the Earth to take over the minds of the townspeople.'),
-(25, 'I Was a Teenage Frankenstein', 1958, NULL, 'Life as a teen was tough in the ''50s: work, dating, school, the fear of communism and the classic relatability of when an evil doctor who would turn you into a composite of athlete’s corpses hell-bent on the destruction of the townsfolk or a nocturnal flesh-eating beast, respectively. See also: I Was a Teenage Werewolf (1957).'),
+(25, 'I Was a Teenage Frankenstein', 1958, NULL, 'Life as a teen was tough in the \'50s: work, dating, school, the fear of communism and the classic relatability of when an evil doctor who would turn you into a composite of athlete’s corpses hell-bent on the destruction of the townsfolk or a nocturnal flesh-eating beast, respectively. See also: I Was a Teenage Werewolf (1957).'),
 (26, 'I Married a Monster from Outer Space', 1958, NULL, 'A young wife (Gloria Talbott) comes to the horrifying realization that her husband has been replaced by a space alien, along with the majority of the town.'),
 (27, 'Monster on the Campus', 1958, NULL, 'Allergens Gone Wild! When Professor Donald Blake (Arthur Franz) accidentally comes into contact with the blood of a specimen of newly discovered prehistoric fish, he transforms into a monstrous Neanderthal with a passion for murdering coeds. '),
 (28, 'The Brain That Wouldn’t Die', 1959, NULL, 'Is there anything more romantic than the story of a doctor (Jason Evers) who keeps the decapitated head of his girlfriend (Virginia Leith) alive while he searches for a replacement body? No. Not even The Notebook.'),
@@ -120,7 +120,7 @@ INSERT INTO `movies` (`id`, `title`, `year`, `poster`, `description`) VALUES
 (34, 'The Man Who Could Walk Through Walls', 1959, NULL, 'Without giving away too much of the film’s nuanced subtlety, the story centers on a man who (spoiler!) discovers the ability to walk through solid walls.'),
 (35, 'Two Thousand Maniacs!', 1964, NULL, 'The southern town of Pleasant Valley is anything but for six Yankee tourists trapped in a murderous centennial celebration aimed at revenge on the northerners for the Civil War.'),
 (36, 'The Incredibly Strange Creatures Who Stopped Living and Became Mixed-up Zombies!!?', 1964, NULL, 'Jerry decides to take his girlfriend to a carnival. Jerry’s girlfriend wants to get her fortune read by a mysterious gypsy woman. Jerry decides to scoff at the fortune teller’s predictions. Did Jerry make a fatal mistake!!? Should Jerry have heeded the gypsy’s fortune!!? Does that very same gypsy turn Jerry into a blood-thirsty mixed-up zombie!!? What do you think!!?'),
-(37, 'The Adventures of Rat Pfink and Boo Boo', 1966, NULL, 'When rock star Lonnie Lord''s (Ron Haydock) girlfriend is kidnapped by the nefarious Chain Gang, Lonnie and his partner Titus Twimbly (Titus Moede) transform themselves into the go-go dancing crime fighting duo of Rat Pfink and Boo Boo to rescue the damsel in distress.'),
+(37, 'The Adventures of Rat Pfink and Boo Boo', 1966, NULL, 'When rock star Lonnie Lord\'s (Ron Haydock) girlfriend is kidnapped by the nefarious Chain Gang, Lonnie and his partner Titus Twimbly (Titus Moede) transform themselves into the go-go dancing crime fighting duo of Rat Pfink and Boo Boo to rescue the damsel in distress.'),
 (38, 'Werewolves on Wheels', 1971, NULL, 'A biker gang trashes a monastery belonging to a Satanic sect of monks and, as a result, are ravished by a werewolf in their midst.'),
 (39, 'Ilsa: She Wolf of the Ss', 1975, NULL, 'Ilsa (Dyanne Thorne) is a Nazi concentration camp warden who aims to prove that women are more capable at withstanding pain than men by — what else? — torturing them to death.'),
 (40, 'Attack of the Killer Tomatoes!', 1978, NULL, 'The iconic B-movie franchise — which also included the sequels Return of the Killer Tomatoes! (with George Clooney), Killer Tomatoes Strike Back! and Killer Tomatoes Eat France! — featured sentient tomatoes that sought revenge on not just the Heinz family, but all of humanity.'),
@@ -128,12 +128,12 @@ INSERT INTO `movies` (`id`, `title`, `year`, `poster`, `description`) VALUES
 (42, 'Killer Klowns from Outer Space', 1988, NULL, 'What’s worse than an alien invasion? An alien invasion by a species that look exactly like clowns!'),
 (43, 'Hell Comes to Frogtown', 1988, NULL, 'Subtlety abounds in this post-apocalyptic story of a man named Sam Hell (Roddy Piper) who comes to rescue a group of fertile women from a town full of frog-men mutants.'),
 (44, 'Frankenhooker', 1990, NULL, 'After losing his fiancee in a tragic lawnmower accident, a med-school dropout (James Lorinz) attaches his dearly departed’s head to a new body. Oh, and the body is made up of the corpses of Manhattan prostitutes.'),
-(45, 'Attack of the 50ft Woman', 1993, '566612c55ba13.jpeg', 'In the 1958 original, Nancy Archer (Allison Hayes) is a young married woman in an unhappy marriage. She finally finds a chance to seek her revenge on her cheating husband when, as luck would have it, aliens transform her into a looming 50-foot giant. The movie was remade 35 years later.'),
+(45, 'Attack of the 50ft Woman444', 1993, NULL, 'In the 1958 original, Nancy Archer (Allison Hayes) is a young married woman in an unhappy marriage. She finally finds a chance to seek her revenge on her cheating husband when, as luck would have it, aliens transform her into a looming 50-foot giant. The movie was remade 35 years later.'),
 (46, 'Leprechaun: Back 2 Tha Hood', 2003, NULL, 'The murderous little Irishman traveled to Compton to wreak havoc on the inner-city. Twice.   '),
 (47, 'The Wizard of Gore', 2007, NULL, 'Master illusionist Montag the Magnificent (Crispin Glover) is an underground illusionist who shocks audiences by butchering female fans on stage. However, when actual murder victims start showing up with the same injuries, the chase to find the killer begins with ol’ Montag. The movie was a remake of the 1970 original.'),
 (48, 'The Killer Robots and the Battle for the Cosmic Potato', 2009, NULL, 'A team of robotic mercenaries who have just escaped from imprisonment on an asteroid are recruited by an alien race to track down the titular Cosmic Potato of Power.'),
 (49, 'Big Ass Spider!', 2013, NULL, 'The story centers on a spider, who happens to be quite large, that aims to destroy the city of Los Angeles.'),
-(50, 'Bimbo Movie Bash', 2013, NULL, 'Male chauvinists get their comeuppance at the hands of an invasion of alien ''bimbos'' in the self-described ''Independence Day of Bimbo Movies!''');
+(50, 'Bimbo Movie Bash', 2013, NULL, 'Male chauvinists get their comeuppance at the hands of an invasion of alien \'bimbos\' in the self-described \'Independence Day of Bimbo Movies!\'');
 
 -- --------------------------------------------------------
 
@@ -141,9 +141,9 @@ INSERT INTO `movies` (`id`, `title`, `year`, `poster`, `description`) VALUES
 -- Table structure for table `movie_tag`
 --
 
-CREATE TABLE IF NOT EXISTS `movie_tag` (
-  `movie_id` smallint(15) unsigned NOT NULL,
-  `tag_id` int(11) unsigned NOT NULL
+CREATE TABLE `movie_tag` (
+  `movie_id` smallint(15) UNSIGNED NOT NULL,
+  `tag_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -155,9 +155,9 @@ INSERT INTO `movie_tag` (`movie_id`, `tag_id`) VALUES
 (40, 3),
 (1, 7),
 (1, 9),
-(45, 14),
 (15, 67),
-(15, 65);
+(15, 65),
+(45, 14);
 
 -- --------------------------------------------------------
 
@@ -165,17 +165,16 @@ INSERT INTO `movie_tag` (`movie_id`, `tag_id`) VALUES
 -- Table structure for table `tags`
 --
 
-CREATE TABLE IF NOT EXISTS `tags` (
-  `id` int(11) unsigned NOT NULL,
+CREATE TABLE `tags` (
+  `id` int(11) UNSIGNED NOT NULL,
   `tag` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `tag`) VALUES
-(63, ''),
 (67, ' giant'),
 (65, ' monsters'),
 (13, '3d'),
@@ -200,13 +199,13 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(15) unsigned NOT NULL,
+CREATE TABLE `users` (
+  `id` int(15) UNSIGNED NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('user','admin') NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -214,9 +213,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 (7, 'test', 'test@email.com', '$2y$10$HjxcNGqRJXptslX9lVl1su73S./i0ETeavjvUWkLfH6Ppf02LK.sy', 'user'),
-(8, 'richster', 'richster98@hotmail.com', '$2y$10$KeFcliese6henxIPlOZroeH9p0XBlJp4ybFfTR31hmlQ8digb1f/u', 'admin'),
-(9, '', 'richard@bgi.org.nz', '$2y$10$49fitVxPwcr11qHxXvm/G.BvriRuV9BYC3xYuQePVQ.Ux6y7Yp7t2', 'admin'),
-(10, 'APples1', 'email@email.com', '$2y$10$604X81A94sVWhwWoWgNR3uAgTERZ5F6WIRehwiOmS.hmvCL0NXNpK', 'user');
+(8, 'richster', 'richard.hpa@hotmail.com', '$2y$10$KeFcliese6henxIPlOZroeH9p0XBlJp4ybFfTR31hmlQ8digb1f/u', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -240,10 +237,9 @@ ALTER TABLE `merchandise`
 -- Indexes for table `movies`
 --
 ALTER TABLE `movies`
-  ADD PRIMARY KEY (`id`),
-  ADD FULLTEXT KEY `title` (`title`);
-ALTER TABLE `movies`
-  ADD FULLTEXT KEY `description` (`description`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `movies` ADD FULLTEXT KEY `title` (`title`);
+ALTER TABLE `movies` ADD FULLTEXT KEY `description` (`description`);
 
 --
 -- Indexes for table `movie_tag`
@@ -274,27 +270,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `merchandise`
 --
 ALTER TABLE `merchandise`
-  MODIFY `id` mediumint(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` mediumint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` smallint(15) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+  MODIFY `id` smallint(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(15) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
